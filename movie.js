@@ -4,7 +4,7 @@ var fs = require("fs");
 function getMovies(callBack) {
   let movies = "[{}]";
 
-  fs.readFile("./movieList.json", "utf8", function(err, data) {
+  fs.readFile(__dirname+"/movieList.json", "utf8", function(err, data) {
     if (err) {
       throw err;
     } else {

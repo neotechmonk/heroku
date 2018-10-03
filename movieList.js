@@ -9,7 +9,7 @@
 // 3. Return JSON
 
 var http = require("http");
-var getMovies = require("./movie");
+var getMovies = require("./movie"); //contains function to return movie objects
 
 //Reqest and Response Handler
 const server = http.createServer((req, res) => {
