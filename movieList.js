@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
     getMovies(function(movies) {
       console.log("first movie : " + movies[0].title);
       //Assign JSON object as string
-      movies = JSON.stringify(movies);
+      movies = JSON.stringify(movies,null, 4);
       //send json as string
       res.end(movies);
     });
