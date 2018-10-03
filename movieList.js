@@ -8,11 +8,11 @@
 // 2. Compose JSON
 // 3. Return JSON
 
-import { createServer } from "http";
-import getMovies from "./movie"; //contains function to return movie objects
+var http = require("http");
+var getMovies = require("./movie"); //contains function to return movie objects
 
 //Reqest and Response Handler
-const server = createServer((req, res) => {
+const server = http.createServer((req, res) => {
   console.log("request made at " + req.url);
   let movies = null;
 
