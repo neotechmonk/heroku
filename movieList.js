@@ -21,9 +21,18 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { "Content-Type": "application/json" });
 
     getMovies(function(movies) {
-      console.log("first movie : " + movies[0].title);
+      for (i = 0; i < movies.length; i++) {
+        console.log(
+          "movie #:" +
+            (i + 1) +
+            " ID: " +
+            movies[i].id +
+            " Title: " +
+            movies[i].title
+        );
+      }
       //Assign JSON object as string
-      movies = JSON.stringify(movies,null, 4);
+      movies = JSON.stringify(movies, null, 4);
       //send json as string
       res.end(movies);
     });
