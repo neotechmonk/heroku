@@ -4,6 +4,7 @@
   "description": "A demo to serve json file as data heroku deployment",
   "main": "movieList.js",
   "scripts": {
+    "start": "node movieList.js",
     "test": "mocha || true",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",
     "coverage-report": "start chrome coverage/lcov-report/index.html"
