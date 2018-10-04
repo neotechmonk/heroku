@@ -1,11 +1,22 @@
 "use strict";
 
-var chai = require("chai");
-var assertArrays = require("chai-arrays");
-var mocha = require("mocha");
-var getMovies = require("../movie");
+var _chai = require("chai");
 
-chai.use(assertArrays);
+var _chaiArrays = require("chai-arrays");
+
+var _chaiArrays2 = _interopRequireDefault(_chaiArrays);
+
+var _mocha = require("mocha");
+
+var _mocha2 = _interopRequireDefault(_mocha);
+
+var _movie = require("../movie");
+
+var _movie2 = _interopRequireDefault(_movie);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _chai.use)(_chaiArrays2.default);
 
 var moviesResult = null;
 
@@ -18,32 +29,32 @@ function resetResults() {
 describe("Movie", function () {
   describe("App-getMOvies", function () {
     it("Movies object shouldnt be null", function (done) {
-      getMovies(function (moviesResult) {
-        chai.assert.isNotNull(moviesResult);
+      (0, _movie2.default)(function (moviesResult) {
+        _chai.assert.isNotNull(moviesResult);
         done();
       });
     });
 
     it("Movies should be an array", function (done) {
-      getMovies(function (moviesResult) {
-        chai.expect(moviesResult).to.be.array();
+      (0, _movie2.default)(function (moviesResult) {
+        (0, _chai.expect)(moviesResult).to.be.array();
         done();
       });
     });
 
     it("Movies arrays should have atleast one  movie exists in the datasource", function (done) {
-      getMovies(function (moviesResult) {
-        chai.expect(moviesResult).not.to.be.ofSize(0);
+      (0, _movie2.default)(function (moviesResult) {
+        (0, _chai.expect)(moviesResult).not.to.be.ofSize(0);
         done();
       });
     });
 
     it("movie has key properties if at least one movie exists in the datasource", function (done) {
-      getMovies(function (moviesResult) {
+      (0, _movie2.default)(function (moviesResult) {
         movieResult = moviesResult[0];
-        chai.assert.property(movieResult, "title", "movie doesnt have a title property");
-        chai.assert.property(movieResult, "id", "movie doesnt have an id property");
-        chai.assert.property(movieResult, "sessions", "movie doesnt have the sessions property");
+        _chai.assert.property(movieResult, "title", "movie doesnt have a title property");
+        _chai.assert.property(movieResult, "id", "movie doesnt have an id property");
+        _chai.assert.property(movieResult, "sessions", "movie doesnt have the sessions property");
         // this doesnt work chai.assert.deepProperty(movieResult, "sessions.location");
 
         done();

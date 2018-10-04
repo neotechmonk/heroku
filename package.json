@@ -5,7 +5,7 @@
   "main": ".compiled/movieList.js",
   "scripts": {
     "start": "node .compiled/movieList.js",
-    "test": "mocha || true",
+    "test": "mocha -- .compiled/**/test/*.js --recursive ||true",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",
     "coverage-report": "start chrome coverage/lcov-report/index.html",
     "compile": "babel src --out-dir .compiled --source-maps --watch"
