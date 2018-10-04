@@ -56,7 +56,6 @@ describe("Movie", function () {
         _chai.assert.property(movieResult, "id", "movie doesnt have an id property");
         _chai.assert.property(movieResult, "sessions", "movie doesnt have the sessions property");
         // this doesnt work chai.assert.deepProperty(movieResult, "sessions.location");
-
         done();
       });
     });

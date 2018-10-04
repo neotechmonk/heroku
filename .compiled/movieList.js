@@ -1,20 +1,22 @@
 "use strict";
 
+var _http = require("http");
+
+var _movie = require("./movie");
+
+var _movie2 = _interopRequireDefault(_movie);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//contains function to return movie objects
+
+//Reqest and Response Handler
 //@Theepan Thevathasasn
 //Created : 03-10-2018
 //Last updated : 03-10-2018
 
 // **Send movie list as json**
-// 1. Process request type - all movies or filtered
-// 1. Compose Data
-// 2. Compose JSON
-// 3. Return JSON
-
-var http = require("http");
-var getMovies = require("./movie"); //contains function to return movie objects
-
-//Reqest and Response Handler
-var server = http.createServer(function(req, res) {
+var server = (0, _http.createServer)(function (req, res) {
   console.log("request made at " + req.url);
   var movies = null;
 
@@ -22,11 +24,9 @@ var server = http.createServer(function(req, res) {
   if (req.url === "/movies") {
     res.writeHead(200, { "Content-Type": "application/json" });
 
-    getMovies(function(movies) {
-      movies.forEach(function(movie) {
-        console.log(
-          `#${movies.indexOf(movie)} ID: ${movie.id} Title: ${movie.title}`
-        );
+    (0, _movie2.default)(function (movies) {
+      movies.forEach(function (movie) {
+        console.log("movie #: " + (movies.indexOf(movie) + 1) + " ID:" + movie.id + " Title: " + movie.title);
       });
 
       //Assign JSON object as string

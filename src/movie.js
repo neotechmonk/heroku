@@ -9,7 +9,6 @@ function getMovies(callBack) {
       throw err;
     } else {
       movies = JSON.parse(data);
-      //console.log('title '+ movies[0].title);
       callBack(movies);
     }
   });
