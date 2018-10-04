@@ -2,9 +2,9 @@
   "name": "heroku",
   "version": "1.0.0",
   "description": "A demo to serve json file as data heroku deployment",
-  "main": "movieList.js",
+  "main": ".compiled/movieList.js",
   "scripts": {
-    "start": "node movieList.js",
+    "start": "node .compiled/movieList.js",
     "test": "mocha || true",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",
     "coverage-report": "start chrome coverage/lcov-report/index.html",

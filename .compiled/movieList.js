@@ -14,7 +14,7 @@ var http = require("http");
 var getMovies = require("./movie"); //contains function to return movie objects
 
 //Reqest and Response Handler
-var server = http.createServer(function (req, res) {
+var server = http.createServer(function(req, res) {
   console.log("request made at " + req.url);
   var movies = null;
 
@@ -22,10 +22,13 @@ var server = http.createServer(function (req, res) {
   if (req.url === "/movies") {
     res.writeHead(200, { "Content-Type": "application/json" });
 
-    getMovies(function (movies) {
-      for (i = 0; i < movies.length; i++) {
-        console.log("movie #:" + (i + 1) + " ID: " + movies[i].id + " Title: " + movies[i].title);
-      }
+    getMovies(function(movies) {
+      movies.forEach(function(movie) {
+        console.log(
+          `#${movies.indexOf(movie)} ID: ${movie.id} Title: ${movie.title}`
+        );
+      });
+
       //Assign JSON object as string
       movies = JSON.stringify(movies, null, 4);
       //send json as string
