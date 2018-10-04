@@ -22,7 +22,10 @@ var server = (0, _http.createServer)(function (req, res) {
 
   //routing to request all movies
   if (req.url === "/movies") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", ["Origin, X-Requested-With, Content-Type, Accept"]);
     res.writeHead(200, { "Content-Type": "application/json" });
+    //console.log(res.getHeaders());
 
     (0, _movie2.default)(function (movies) {
       movies.forEach(function (movie) {

@@ -13,8 +13,13 @@ const server = createServer((req, res) => {
 
   //routing to request all movies
   if (req.url === "/movies") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", [
+      "Origin, X-Requested-With, Content-Type, Accept"
+    ]);
     res.writeHead(200, { "Content-Type": "application/json" });
-  
+    //console.log(res.getHeaders());
+
     getMovies(function(movies) {
       movies.forEach(movie => {
         console.log(
