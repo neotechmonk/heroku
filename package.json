@@ -7,7 +7,8 @@
     "start": "node movieList.js",
     "test": "mocha || true",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive",
-    "coverage-report": "start chrome coverage/lcov-report/index.html"
+    "coverage-report": "start chrome coverage/lcov-report/index.html",
+    "compile": "babel src --out-dir .compiled --source-maps --watch"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,9 @@
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0"
   },
-  "dependencies": {
-    "express": "^4.16.3"
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
